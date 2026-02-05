@@ -28,7 +28,7 @@ for pgn_file in os.listdir(RAW_PGN_DIR):
         pgn_file.replace(".pgn", ".csv")
     )
 
-    with open(pgn_path, encoding="utf-8", errors="ignore") as pgn:
+    with open(pgn_path, encoding="latin-1") as pgn:
         while True:
             game = chess.pgn.read_game(pgn)
             if game is None:
