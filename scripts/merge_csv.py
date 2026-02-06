@@ -14,7 +14,7 @@ df_list = []
 for file in csv_files:
     file_path = os.path.join(PROCESSED_DIR, file)
     df = pd.read_csv(file_path)
-    df["source_file"] = file.replace(".csv", "")  # optional
+    
     df_list.append(df)
 
 merged_df = pd.concat(df_list, ignore_index=True)

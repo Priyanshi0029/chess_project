@@ -22,7 +22,7 @@
 import pandas as pd
 import re
 # ---------- PATH ----------
-CSV_PATH = "data/processed/Yu.csv"
+CSV_PATH = "data/processed/all_games.csv"
 
 # ---------- LOAD DATA ----------
 df = pd.read_csv(CSV_PATH)
@@ -80,12 +80,6 @@ pattern = "|".join(unwanted_keywords)
 # Remove rows where event contains any of these words
 df = df[~df["event"].str.contains(pattern, case=False, na=False)]
 
-player_name = "Yu Yangyi"
-
-df["player_color"] = df.apply(
-    lambda row: "White" if row["white"] == player_name else "Black",
-    axis=1
-)
 # remove moves_san and moves_uci columns
 # df = df.drop(columns=["moves_san","moves_uci"])
 # df = df.drop(columns=["source_file"])
